@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Coming soon</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="../css/coming soon.css" />
+	</head>
+	
+	<body>
+		<div class="container">
+			<h1>До скорої зустрічі</h1>
+
+			<div class="count">
+				<div class="countd">
+					<span id="days">00</span>
+					DAYS
+				</div>
+
+				<div class="countd">
+					<span id="hours">00</span>
+					HOURS
+				</div>
+
+				<div class="countd">
+					<span id="minutes">00</span>
+					MINUTES
+				</div>
+
+				<div class="countd">
+					<span id="seconds">00</span>
+					SECONDS
+				</div>
+			</div>
+		</div>
+
+
+
+		<script type="text/javascript">
+			
+			var count = new Date("jun 1,2019 00:00:00").getTime();
+			var x = setInterval(function(){
+				var now = new Date().getTime();
+				var d = count - now;
+
+				var days = Math.floor(d/(1000*60*60*24));
+				var hours = Math.floor((d%(1000*60*60*24))/(1000*60*60));
+				var minutes = Math.floor((d%(1000*60*60))/(1000*60));
+				var seconds = Math.floor(d%(1000*60)/1000);
+
+				document.getElementById("days").innerHTML = days;
+				document.getElementById("hours").innerHTML = hours;
+				document.getElementById("minutes").innerHTML = minutes;
+				document.getElementById("seconds").innerHTML = seconds;
+
+				if(d <= 0) {
+					clearInterval(x);
+				}
+				
+			}, 1000);
+		</script>
+	</body>
+</html>
